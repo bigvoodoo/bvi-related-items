@@ -236,10 +236,14 @@ class Bvi_Related_Items {
 				// add in the related item to the unordered list
 				$list_data[$item['title']] .= '<li><a href="' . get_permalink($item['id']) . '">' . $item['title'] . '</a></li>';
 			}
+
+			$list_output .= '<ul class="related-items-menu">';
 			// put all those fancy lis in a happy little ul
 			foreach($list_data as $item => $data){
-				$list_output .= '<ul class="related-items-menu">'.$data.'</ul>';
+				$list_output = $data;
 			}
+
+			$list_output .= '</ul>';
 			// close out the last of the html
 			$list_output .= '</div>';
 			// return it! or all that work for nothing...
