@@ -1,0 +1,43 @@
+#bviri-meta-box .related-item {
+	font-size: 11px;
+	margin: 6px 6px 8px;
+	padding: 8px;
+	background: #f1f1f1;
+	border: 1px solid #dfdfdf;
+	cursor: move;
+	
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+#bviri-meta-box .related-item-title {
+	padding: 0 30px 0 0;
+}
+
+#bviri-meta-box .related-item a {
+	float: right;
+}
+
+#bviri-meta-box .related-item img {
+  	float:left;
+	margin-top: -8px;
+	margin-left: -8px;
+}
+
+#bviri-meta-box .related-item a img {
+  margin-top:0px;
+}
+
+.wp-admin select {
+	height: auto;
+	max-width:700px;
+}
+
+input#add_relationship {
+  text-decoration: none;
+  font-size: 12px!important;
+  line-height: 13px;
+  padding: 3px 8px;
+  cursor: pointer;
+}

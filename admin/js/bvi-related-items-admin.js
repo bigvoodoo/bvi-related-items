@@ -5,7 +5,7 @@
 		// when the add relationship button is clicked add that rel item
 		$('input#add_relationship').click(function() {
 				var select = $('#related-items-select'),
-				container = $('#related-items-box'),
+				container = $('#bviri-meta-box'),
 				id = select.val(),
 				title = $('#related-items-select :selected').text();
 	
@@ -14,7 +14,7 @@
 				}
 			
 			if ($('#related-item-' + id).length == 0 && title !== "Select") {
-				container.append('<div class="related-item" id="related-item-' + id + '" style="font-size:11px;margin:6px 6px 8px;padding:8px;background:#f1f1f1;border:1px solid #dfdfdf;cursor:move;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;"><img src="'+wpurl+'/wp-content/plugins/related-items/images/bullet_red.png" title="Remember to save this post when you are finished making changes" style="float:left;margin-top:-8px;margin-left:-8px;"><input type="hidden" name="related-items[]" value="' + id + '"><input type="hidden" name="related-items-titles[]" value="' + title + '"><span class="related-item-title">' + title + '</span><a href="#" title="Remove from list"><img src="'+wpurl+'/wp-content/plugins/related-items/images/delete.png"></a></div>');
+				container.append('<div class="related-item" id="related-item-' + id + '" style="font-size:11px;margin:6px 6px 8px;padding:8px;background:#f1f1f1;border:1px solid #dfdfdf;cursor:move;border-radius:4px;-webkit-border-radius:4px;-moz-border-radius:4px;"><img src="' + bviriScript.pluginsUrl + 'admin/images/bullet-red.png" title="Remember to save this post when you are finished making changes" style="float:left;margin-top:-8px;margin-left:-8px;"><input type="hidden" name="related-items[]" value="' + id + '"><input type="hidden" name="related-items-titles[]" value="' + title + '"><span class="related-item-title">' + title + '</span><a href="#" title="Remove from list"><img src="' + bviriScript.pluginsUrl + 'admin/images/delete.png"></a></div>');
 			}
 		});
 	
@@ -42,7 +42,7 @@
 			return false;
 		});
 		
-		$('#related-items-box').sortable();	
+		$('#bviri-meta-box').sortable();	
 	});
 
 })( jQuery );

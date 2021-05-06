@@ -73,6 +73,7 @@ class Bvi_Related_Items {
 		} else {
 			$this->version = '1.0.0';
 		}
+
 		$this->plugin_name = 'bvi-related-items';
 
 		$this->load_dependencies();
@@ -80,6 +81,8 @@ class Bvi_Related_Items {
 		if(is_admin()) {
 			$this->define_admin_hooks();
 		}
+
+		add_shortcode('related-items', array($this, 'frontend_display') );
 
 	}
 
@@ -129,6 +132,14 @@ class Bvi_Related_Items {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_settings' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'generate_meta_boxes' );
+		
+		$this->loader->add_filter( 'plugin_action_links_' . BVI_RELATED_ITEMS_PLUGIN_BASE, $plugin_admin, 'add_plugin_actions' );
+
+		// Register hook to save the related items when saving the post
+		$this->loader->add_action( 'save_post', $plugin_admin, 'save_each_posts_items' );
 
 	}
 
@@ -170,6 +181,71 @@ class Bvi_Related_Items {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	/**
+	 * Display the frontend HTML of the related items associated with this ID
+	 *
+	 * @since     1.0.0
+	 * @return    string    The version number of the plugin.
+	 */
+	public function frontend_display() {
+		// get the current post ID
+		$id = get_the_ID();
+		// initialize the list array for the items
+		$list_data = array();
+		$related_posts = '';
+
+		if ( !empty( $id ) && is_numeric( $id ) ) {
+			// get the post meta value of related_items associated with this page
+			$related_posts = get_post_meta( $id, 'related_items', true );
+			
+		}
+
+		if ( empty( $related_posts ) || empty( $id ) || !is_numeric( $id ) ) {
+			// if there are no related pages set, use the homepage's set list
+			$homepage = get_page_by_title( 'Home' );
+			$id = $homepage->ID;
+			$related_posts = get_post_meta( $id, 'related_items', true );
+
+		}
+
+		if( $related_posts ) {
+
+			foreach ( $related_posts as $related_post ) {
+				// if a custom title was set for this item, use that instead of the page name
+				if(is_array($related_post) && $related_post['title']){
+					$related_post_id = $related_post['id'];
+					$related_post_title = $related_post['title'];
+				} else {
+					$post = get_post($related_post);
+					$related_post_id = $post->ID;
+					$related_post_title = $post->post_title;
+				}
+
+				$related_items[] = array('id' => $related_post_id, 'title' => $related_post_title);
+			}
+			// beginning of the html
+			$list_output = '<div class="related-items">';
+			// for each related item
+			foreach ($related_items as $item) {
+				// lord jesus, if that array is not already initialized, please do so here - because nobody likes a non-existent variable!
+				if(!empty($item['title'])){
+					$list_data[$item['title']] = "";
+				}
+				// add in the related item to the unordered list
+				$list_data[$item['title']] .= '<li><a href="' . get_permalink($item['id']) . '">' . $item['title'] . '</a></li>';
+			}
+			// put all those fancy lis in a happy little ul
+			foreach($list_data as $item => $data){
+				$list_output .= '<ul class="related-items-menu">'.$data.'</ul>';
+			}
+			// close out the last of the html
+			$list_output .= '</div>';
+			// return it! or all that work for nothing...
+			return $list_output;
+		}
+
 	}
 
 }
