@@ -26,6 +26,10 @@ License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
 
+### 4.0.1
+
+* Adds reference to WordPress version of JQuery UI Sortable
+
 ### 4.0.0
 
 * Complete rewrite of the entire plugin

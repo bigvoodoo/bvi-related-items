@@ -27,6 +27,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 4.0.1 =
+* Adds reference to WordPress version of JQuery UI Sortable
+
 = 4.0.0 =
 * Complete rewrite of the entire plugin
 * Fixes old references to jQuery UI to the latest WordPress core version
