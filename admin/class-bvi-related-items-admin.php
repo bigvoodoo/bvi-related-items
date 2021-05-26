@@ -76,7 +76,7 @@ class Bvi_Related_Items_Admin {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bvi-related-items-admin.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bvi-related-items-admin.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable', 'jquery-ui-draggable', 'jquery-ui-droppable' ), $this->version, false );
 
 		wp_localize_script( $this->plugin_name, 'bviriScript', array( 'pluginsUrl' => plugin_dir_url( __DIR__ ) ) );
 

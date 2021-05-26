@@ -2,8 +2,8 @@
 Contributors: geekmenina
 Donate link: https://www.bigvoodoo.com
 Tags: links, related links
-Requires at least: 5.0
-Tested up to: 5.6.2
+Requires at least: 5.5.1
+Tested up to: 5.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ This section describes how to install the plugin and get it working.
 1. Use the `[related-items]` shortcode to display the related items.
 
 == Changelog ==
+
+= 4.0.2 =
+* WordPress 5.7.2 has JQuery UI Sortable require Draggable and Droppable as well
 
 = 4.0.1 =
 * Adds reference to WordPress version of JQuery UI Sortable

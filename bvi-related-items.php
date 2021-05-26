@@ -12,7 +12,7 @@
  * Plugin Name:       BVI Related Items
  * Plugin URI:        https://github.com/bigvoodoo/bvi-related-items
  * Description:       This will allow you to set custom related items, either posts or pages, to a specific set of pages through shortcode [related-items]
- * Version:           4.0.1
+ * Version:           4.0.2
  * Requires at least: 5.6
  * Requires PHP:      7.2
  * Author:            Big Voodoo Interactive
@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-define( 'BVI_RELATED_ITEMS_VERSION', '4.0.1' );
+define( 'BVI_RELATED_ITEMS_VERSION', '4.0.2' );
 
 if ( ! defined( 'BVI_RELATED_ITEMS_PLUGIN_BASE' ) ) {
 	define( 'BVI_RELATED_ITEMS_PLUGIN_BASE', plugin_basename( __FILE__ ) );
