@@ -27,6 +27,9 @@ This section describes how to install the plugin and get it working.
 
 == Changelog ==
 
+= 4.0.3 =
+* Resolved syntax issue that resulted in only last related item being output
+
 = 4.0.2 =
 * WordPress 5.7.2 has JQuery UI Sortable require Draggable and Droppable as well
 
