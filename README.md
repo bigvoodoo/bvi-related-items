@@ -26,6 +26,10 @@ License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
 
+### 4.0.3
+
+* Resolved syntax issue that resulted in only last related item being output
+
 ### 4.0.2
 
 * WordPress 5.7.2 has JQuery UI Sortable require Draggable and Droppable as well

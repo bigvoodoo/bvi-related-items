@@ -240,7 +240,7 @@ class Bvi_Related_Items {
 			$list_output .= '<ul class="related-items-menu">';
 			// put all those fancy lis in a happy little ul
 			foreach($list_data as $item => $data){
-				$list_output = $data;
+				$list_output .= $data;
 			}
 
 			$list_output .= '</ul>';
