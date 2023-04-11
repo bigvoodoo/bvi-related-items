@@ -26,6 +26,10 @@ License: [GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
 
+### 4.0.4
+
+* Replaced deprecated get_page_by_title() with WP_Query in frontend_display() function
+
 ### 4.0.3
 
 * Resolved syntax issue that resulted in only last related item being output

@@ -204,9 +204,9 @@ class Bvi_Related_Items {
 
 		if ( empty( $related_posts ) || empty( $id ) || !is_numeric( $id ) ) {
 			// if there are no related pages set, use the homepage's set list
-			$homepage = get_page_by_title( 'Home' );
-			$id = $homepage->ID;
-			$related_posts = get_post_meta( $id, 'related_items', true );
+			$homepage = new WP_Query( array( 'pagename' => 'Home' ) );
+            $id = $homepage->queried_object_id;
+            $related_posts = get_post_meta( $id, 'related_items', true );
 
 		}
 
