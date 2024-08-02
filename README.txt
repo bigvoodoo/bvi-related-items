@@ -3,7 +3,7 @@ Contributors: geekmenina
 Donate link: https://www.bigvoodoo.com
 Tags: links, related links
 Requires at least: 5.5.1
-Tested up to: 6.2
+Tested up to: 6.6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,9 @@ This section describes how to install the plugin and get it working.
 1. Use the `[related-items]` shortcode to display the related items.
 
 == Changelog ==
+
+= 4.0.5 =
+* Removes unused class variable, removing warning error in WP admin
 
 = 4.0.4 =
 * Replaced deprecated get_page_by_title() with WP_Query in frontend_display() function
