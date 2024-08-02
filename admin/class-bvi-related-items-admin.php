@@ -104,7 +104,7 @@ class Bvi_Related_Items_Admin {
 	 */
 	public function add_options_page() {
 	
-		$this->plugin_screen_hook_suffix = add_options_page(
+		add_options_page(
 			__( 'BVI Related Items Settings', $this->plugin_name ),
 			__( 'BVI Related Items', $this->plugin_name ),
 			'manage_options',
